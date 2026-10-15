@@ -169,16 +169,17 @@ export default function App() {
     }, 1200);
   };
 
-  const handleResumeDownload = () => {
-    const dummyContent = `Rambuddi Sai Kumar - Resume Summary\nFrontend Developer\nEmail: rambuddisaikumar@gmail.com\nPhone: +91 7095894537\nLocation: Hyderabad, India\n\nExperience: 2.1 Years in React.js, Tailwind CSS, TypeScript, and REST APIs.`;
-    const element = document.createElement("a");
-    const file = new Blob([dummyContent], {type: 'text/plain'});
-    element.href = URL.createObjectURL(file);
-    element.download = "Rambuddi_Sai_Kumar_Resume.txt";
-    document.body.appendChild(element);
-    element.click();
-    document.body.removeChild(element);
-  };
+
+const handleResumeDownload = () => {
+  const link = document.createElement("a");
+
+  link.href = "/R SAIKUMAR.pdf";
+  link.download = "R SAIKUMAR.pdf";
+
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);
+};
 
   const filteredSkills = PORTFOLIO_DATA.skills.filter(s => 
     skillCategory === "All" || s.category === skillCategory
